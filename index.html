@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AUKA — Avatar de Apoyo Emocional | Antioquia 2040</title>
+  <meta name="description" content="Prototipo interactivo de AUKA: avatar conversacional de apoyo emocional para la juventud rural de Antioquia. Cátedra de IA — Antioquia 2040.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+</head>
+<body>
+  <!-- ═══ NAVIGATION ═══ -->
+  <nav class="nav" id="mainNav">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <span class="logo-dot"></span>
+        AUKA
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#problema" data-section="problema">Problema</a></li>
+        <li><a href="#solucion" data-section="solucion">Solución</a></li>
+        <li><a href="#ia" data-section="ia">IA & Ética</a></li>
+        <li><a href="#prototipo" data-section="prototipo">Prototipo</a></li>
+        <li><a href="#canvas" data-section="canvas">Canvas</a></li>
+        <li><a href="#equipo" data-section="equipo">Equipo</a></li>
+      </ul>
+      <div class="nav-modes">
+        <button class="btn btn-sm btn-primary" id="btnPechaKucha" title="Presentación de Diapositivas">🖥️ Presentación</button>
+      </div>
+      <div class="nav-hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero" id="hero">
+    <div class="hero-particles" id="particles"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Cátedra de IA — Antioquia 2040 · Sesión 1
+      </div>
+      <h1 class="hero-title">
+        <span class="title-highlight">AUKA</span>
+      </h1>
+      <p class="hero-subtitle">Avatar de Apoyo Emocional para la Juventud Rural de Antioquia</p>
+      <p class="hero-tagline">Acompañamiento · Escucha · Canalización — <strong>offline-first</strong></p>
+      <div class="hero-actions">
+        <a href="#prototipo" class="btn btn-primary">📱 Ver Prototipo Interactivo</a>
+        <button class="btn btn-secondary" id="btnPKHero">🖥️ Iniciar Presentación</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PROBLEM SECTION ═══ -->
+  <section class="section" id="problema">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">01 — El problema</span>
+        <h2>La brecha invisible en <span class="accent">salud mental juvenil</span></h2>
+        <p>En las subregiones de Antioquia existe una brecha crítica en salud mental y bienestar socioemocional de los jóvenes. Sin estabilidad emocional, la juventud rural no puede aprovechar las oportunidades de Antioquia 2040.</p>
+      </div>
+      <div class="barriers-grid">
+        <div class="barrier-card glass reveal reveal-delay-1">
+          <div class="barrier-icon">📍</div>
+          <h3>Distancia Física</h3>
+          <p>Pocos psicólogos por municipio, citas difíciles de conseguir. Horas de viaje desde las veredas hasta los centros de salud más cercanos.</p>
+        </div>
+        <div class="barrier-card glass reveal reveal-delay-2">
+          <div class="barrier-icon">🤐</div>
+          <h3>Estigma Cultural</h3>
+          <p>Hablar de emociones y salud mental se vive con miedo al juicio de la comunidad. El "qué dirán" silencia a quienes más necesitan ayuda.</p>
+        </div>
+        <div class="barrier-card glass reveal reveal-delay-3">
+          <div class="barrier-icon">📡</div>
+          <h3>Conectividad Limitada</h3>
+          <p>Conectividad inestable o nula en muchas veredas. Las soluciones digitales convencionales no llegan al campo antioqueño.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SOLUTION SECTION ═══ -->
+  <section class="section" id="solucion">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">02 — Enfoque de solución</span>
+        <h2>Tres pilares de <span class="accent">diseño con IA</span></h2>
+        <p>Un avatar conversacional de apoyo emocional, disponible las 24 horas, diseñado sobre tres principios que responden directamente a las barreras identificadas.</p>
+      </div>
+      <div class="pillars-grid">
+        <div class="pillar-card glass reveal reveal-delay-1">
+          <div class="pillar-number">01</div>
+          <h3>Escucha y Alfabetización Emocional</h3>
+          <p>Conversa con el joven en lenguaje cercano, le ayuda a nombrar y entender lo que siente y ofrece ejercicios de regulación emocional validados por psicología.</p>
+          <span class="pillar-tag">Empatía + IA</span>
+        </div>
+        <div class="pillar-card glass reveal reveal-delay-2">
+          <div class="pillar-number">02</div>
+          <h3>Detección Temprana y Canalización</h3>
+          <p>Identifica señales de tristeza, ansiedad o riesgo y, con consentimiento explícito, activa una ruta de remisión prioritaria hacia profesionales humanos locales. <strong>La IA nunca diagnostica ni medica.</strong></p>
+          <span class="pillar-tag">Supervisión humana</span>
+        </div>
+        <div class="pillar-card glass reveal reveal-delay-3">
+          <div class="pillar-number">03</div>
+          <h3>Enfoque Híbrido Offline-First</h3>
+          <p>Funciona con contenido descargable, versión ligera por SMS y actividades comunitarias presenciales con piezas audiovisuales. La IA es puente, no sustituto.</p>
+          <span class="pillar-tag">Accesibilidad real</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ AI & ETHICS SECTION ═══ -->
+  <section class="section" id="ia">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">03 — Herramienta de IA y gobernanza ética</span>
+        <h2>Arquitectura <span class="accent-gold">técnica y ética</span></h2>
+        <p>Cada componente del pipeline de IA tiene una justificación técnica y ética explícita. La privacidad y supervisión humana son criterios de diseño, no adiciones posteriores.</p>
+      </div>
+      <div class="ai-stack">
+        <div class="ai-layer glass-sm reveal reveal-delay-1">
+          <div class="ai-layer-icon">🧠</div>
+          <h4>Modelo Conversacional (LLM)</h4>
+          <p>Familia GPT o Claude vía API con fine-tuning ligero y prompting especializado. Guiones y límites diseñados y validados por psicólogos.</p>
+        </div>
+        <div class="ai-layer glass-sm reveal reveal-delay-2">
+          <div class="ai-layer-icon">🔍</div>
+          <h4>Clasificador de Riesgo (NLP)</h4>
+          <p>Análisis de sentimiento y detección de patrones de crisis. Entrenado con vocabulario y modismos de la ruralidad antioqueña para reducir sesgo cultural.</p>
+        </div>
+        <div class="ai-layer glass-sm reveal reveal-delay-3">
+          <div class="ai-layer-icon">🎙️</div>
+          <h4>Voz a Texto (STT)</h4>
+          <p>Módulo opcional para jóvenes con baja alfabetización digital. Permite interactuar con Auka mediante voz.</p>
+        </div>
+        <div class="ai-layer glass-sm reveal reveal-delay-4">
+          <div class="ai-layer-icon">🔒</div>
+          <h4>Privacidad por Diseño</h4>
+          <p>Anonimización de datos y cifrado. Ninguna conversación queda asociada al nombre del usuario. Consentimiento en cada paso.</p>
+        </div>
+        <div class="ai-layer glass-sm reveal reveal-delay-1">
+          <div class="ai-layer-icon">📱</div>
+          <h4>App Móvil + SMS/USSD</h4>
+          <p>Aplicación ligera más versión por mensajes de texto para zonas sin datos. Panel de alertas para profesionales de salud local.</p>
+        </div>
+        <div class="ai-layer glass-sm reveal reveal-delay-2">
+          <div class="ai-layer-icon">👁️</div>
+          <h4>Supervisión Humana Activa</h4>
+          <p>La IA es canal de sensibilización, prevención y puente hacia las redes de salud mental. Nunca un sustituto del profesional humano.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PRODUCT TYPE ═══ -->
+  <section class="section" id="producto">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">04 — Tipo de producto</span>
+        <h2>Ecosistema <span class="accent">AUKA</span></h2>
+        <p>Un sistema de acompañamiento y canalización en salud mental — no una app de entretenimiento ni una herramienta clínica.</p>
+      </div>
+      <div class="pillars-grid">
+        <div class="pillar-card glass reveal reveal-delay-1">
+          <div class="pillar-number">💬</div>
+          <h3>Avatar Conversacional</h3>
+          <p>Chatbot de apoyo emocional 24/7 con interfaz empática, opciones de emociones rápidas y texto libre.</p>
+          <span class="pillar-tag">Core del producto</span>
+        </div>
+        <div class="pillar-card glass reveal reveal-delay-2">
+          <div class="pillar-number">🏥</div>
+          <h3>Panel de Especialistas</h3>
+          <p>Panel de alertas para psicólogos locales con notificaciones prioritarias y geolocalización de servicios de salud.</p>
+          <span class="pillar-tag">Canalización</span>
+        </div>
+        <div class="pillar-card glass reveal reveal-delay-3">
+          <div class="pillar-number">🎬</div>
+          <h3>Componente Transmedia</h3>
+          <p>Piezas audiovisuales y dinámicas comunitarias presenciales que rompen el tabú y fortalecen la conexión social.</p>
+          <span class="pillar-tag">Impacto social</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ INTERACTIVE PROTOTYPE ═══ -->
+  <section class="section simulator-section" id="prototipo">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">05 — Primer prototipo visual</span>
+        <h2>Simulador <span class="accent">interactivo</span></h2>
+        <p>Navega por las 5 pantallas principales de la aplicación AUKA como si la tuvieras en tus manos.</p>
+      </div>
+
+      <!-- Phone -->
+      <div class="phone-frame reveal">
+        <div class="phone-notch"></div>
+        <div class="phone-screen" id="phoneScreen">
+
+          <!-- Screen 1: Welcome -->
+          <div class="screen screen-welcome active" data-screen="0">
+            <div class="auka-logo-sim">AUKA</div>
+            <div class="avatar-circle">🌿</div>
+            <h2>Hola, soy Auka</h2>
+            <p class="welcome-text">Este es tu espacio privado.<br>Nadie más ve lo que hablamos aquí.</p>
+            <button class="btn-conversar" id="btnConversar">💬 Conversar</button>
+            <p class="privacy-notice"><span class="lock-icon">🔒</span> Tu privacidad es importante para nosotros. Auka no reemplaza a un profesional de la salud.</p>
+          </div>
+
+          <!-- Screen 2: Chat -->
+          <div class="screen screen-chat" data-screen="1">
+            <div class="chat-header">
+              <div class="chat-header-avatar">🌿</div>
+              <div class="chat-header-info">
+                <h4>AUKA</h4>
+                <span class="online-status"><span class="online-dot"></span> En línea</span>
+              </div>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+              <div class="msg msg-bot">¿Cómo te sientes hoy? Puedes elegir una emoción o contarme con tus propias palabras. 💚</div>
+              <div class="emotion-buttons" id="emotionBtns">
+                <button class="emotion-btn" data-emotion="feliz"><span class="emoji">😊</span>Feliz</button>
+                <button class="emotion-btn" data-emotion="triste"><span class="emoji">😢</span>Triste</button>
+                <button class="emotion-btn" data-emotion="ansioso"><span class="emoji">😰</span>Ansioso</button>
+                <button class="emotion-btn" data-emotion="enojado"><span class="emoji">😤</span>Enojado</button>
+              </div>
+            </div>
+            <div class="chat-input-bar">
+              <input type="text" placeholder="Escribe aquí..." id="chatInput">
+              <button class="send-btn" id="chatSendBtn">➤</button>
+            </div>
+            <div class="phone-nav">
+              <button class="phone-nav-item active" data-goto="1"><span class="nav-icon">🏠</span>Inicio</button>
+              <button class="phone-nav-item" data-goto="2"><span class="nav-icon">🧘</span>Ejercicios</button>
+              <button class="phone-nav-item" data-goto="4"><span class="nav-icon">👥</span>Comunidad</button>
+              <button class="phone-nav-item" data-goto="3"><span class="nav-icon">❓</span>Ayuda</button>
+              <button class="phone-nav-item"><span class="nav-icon">👤</span>Perfil</button>
+            </div>
+          </div>
+
+          <!-- Screen 3: Breathing Exercise -->
+          <div class="screen screen-exercise" data-screen="2">
+            <div class="ex-header">
+              <button class="back-btn" data-goto="1">←</button>
+              <span class="ex-title">Ejercicio</span>
+            </div>
+            <h3>Vamos a respirar juntos</h3>
+            <p class="ex-desc">Este ejercicio te ayudará a calmar tu mente y tu cuerpo.</p>
+            <div class="breathing-circle" id="breathingCircle"></div>
+            <div class="breathing-label" id="breathLabel">Inhala</div>
+            <div class="breathing-timer" id="breathTimer">4 segundos</div>
+            <div class="exercise-controls">
+              <button class="ex-ctrl-btn">≡</button>
+              <button class="ex-ctrl-btn play" id="breathPlayBtn">⏸</button>
+              <button class="ex-ctrl-btn">🔊</button>
+            </div>
+            <div class="offline-notice-sim">📥 Puedes descargar este audio para usarlo cuando no tengas internet.</div>
+          </div>
+
+          <!-- Screen 4: Help Route -->
+          <div class="screen screen-help" data-screen="3">
+            <div class="help-header">
+              <button class="back-btn" data-goto="1">←</button>
+              <span class="help-title">Ruta de ayuda</span>
+            </div>
+            <div class="help-illustration">🤝</div>
+            <h3>No estás solo, podemos encontrar ayuda juntos</h3>
+            <p class="help-desc">¿Quieres que te conecte con alguien que pueda acompañarte de verdad?</p>
+            <div class="help-option" id="helpProf">
+              <div class="help-option-icon prof">👩‍⚕️</div>
+              <div class="help-option-info">
+                <h4>Psicóloga Laura M.</h4>
+                <p>Centro de Salud San Rafael<br>San Rafael, Antioquia · A 15 km de ti</p>
+              </div>
+            </div>
+            <div class="help-option" id="helpLine">
+              <div class="help-option-icon line">📞</div>
+              <div class="help-option-info">
+                <h4>Línea de Apoyo 123</h4>
+                <p>Atención 24/7 · Gratuita · Confidencial</p>
+              </div>
+            </div>
+            <div class="help-actions">
+              <button class="btn-connect" id="btnConnect">Sí, conectar ahora ➤</button>
+              <button class="btn-later" data-goto="1">Prefiero pensarlo después</button>
+            </div>
+          </div>
+
+          <!-- Screen 5: Community / Offline -->
+          <div class="screen screen-community" data-screen="4">
+            <div class="comm-header">
+              <span class="comm-title">Comunidad</span>
+              <span class="offline-badge-sim">📥 Offline</span>
+            </div>
+            <div class="offline-mode-card">
+              <span class="omc-icon">📡</span>
+              <div>
+                <h4>Modo sin conexión</h4>
+                <p>Accede a contenido descargado</p>
+              </div>
+            </div>
+            <h4 class="comm-section-title">Descubre</h4>
+            <div class="comm-card">
+              <div class="comm-card-thumb video">🎬</div>
+              <div class="comm-card-info">
+                <h4>Hablemos de emociones</h4>
+                <p>Video · 5 min</p>
+              </div>
+              <span class="play-icon">▶</span>
+            </div>
+            <div class="comm-card">
+              <div class="comm-card-thumb audio">🎧</div>
+              <div class="comm-card-info">
+                <h4>Historias que inspiran</h4>
+                <p>Audio · 8 min</p>
+              </div>
+              <span class="play-icon">▶</span>
+            </div>
+            <div class="comm-card">
+              <div class="comm-card-thumb event">📍</div>
+              <div class="comm-card-info">
+                <h4>Actividades en mi vereda</h4>
+                <p>Conoce grupos y eventos cercanos</p>
+              </div>
+              <span class="play-icon">→</span>
+            </div>
+            <div class="phone-nav" style="margin-top: auto;">
+              <button class="phone-nav-item" data-goto="1"><span class="nav-icon">🏠</span>Inicio</button>
+              <button class="phone-nav-item" data-goto="2"><span class="nav-icon">🧘</span>Ejercicios</button>
+              <button class="phone-nav-item active" data-goto="4"><span class="nav-icon">👥</span>Comunidad</button>
+              <button class="phone-nav-item" data-goto="3"><span class="nav-icon">❓</span>Ayuda</button>
+              <button class="phone-nav-item"><span class="nav-icon">👤</span>Perfil</button>
+            </div>
+          </div>
+
+        </div><!-- /phone-screen -->
+      </div><!-- /phone-frame -->
+
+      <!-- Dots Navigation -->
+      <div class="sim-dots" id="simDots">
+        <button class="sim-dot active" data-screen="0" title="Bienvenida"></button>
+        <button class="sim-dot" data-screen="1" title="Chat"></button>
+        <button class="sim-dot" data-screen="2" title="Ejercicio"></button>
+        <button class="sim-dot" data-screen="3" title="Ruta de Ayuda"></button>
+        <button class="sim-dot" data-screen="4" title="Comunidad"></button>
+      </div>
+      <div class="sim-nav-buttons">
+        <button class="btn btn-sm btn-secondary" id="simPrev">← Anterior</button>
+        <button class="btn btn-sm btn-primary" id="simNext">Siguiente →</button>
+      </div>
+      <div class="sim-screen-label" id="simLabel">
+        <h4>Pantalla 1 — Bienvenida</h4>
+        <p>Auka da la bienvenida y genera confianza desde el primer momento, explicando que es un espacio seguro y privado.</p>
+      </div>
+
+      <!-- Original Mockup Image -->
+      <div class="mockup-img-container reveal" style="margin-top: 3rem;">
+        <span class="section-label">Mockup Original del Equipo</span>
+        <img src="mockup-auka.jpg" alt="Mockup original de las 5 pantallas de AUKA" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ VALUE PROPOSITION CANVAS ═══ -->
+  <section class="section" id="canvas">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">06 — Canvas de propuesta de valor</span>
+        <h2>¿Por qué <span class="accent-gold">AUKA</span> es diferente?</h2>
+        <p>Perfil del joven rural antioqueño confrontado con el mapa de valor de nuestra solución.</p>
+      </div>
+      <div class="canvas-container">
+        <!-- Client Profile -->
+        <div class="canvas-side glass reveal">
+          <h3>👤 Perfil del Cliente</h3>
+          <div class="canvas-items">
+            <div class="canvas-item">
+              <h4>🎯 Tareas</h4>
+              <p>Entender lo que siente, encontrar con quién hablar sin ser juzgado, pedir ayuda a tiempo.</p>
+            </div>
+            <div class="canvas-item">
+              <h4>😰 Frustraciones</h4>
+              <p>Estigma y miedo al juicio, no hay psicólogo cerca, citas lejanas, mala conectividad, sensación de soledad.</p>
+            </div>
+            <div class="canvas-item">
+              <h4>😊 Alegrías</h4>
+              <p>Un espacio privado y seguro, sentirse escuchado, dar un primer paso sin exponerse.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Value Map -->
+        <div class="canvas-side glass reveal reveal-delay-2">
+          <h3>🌿 Mapa de Valor — AUKA</h3>
+          <div class="canvas-items">
+            <div class="canvas-item gold">
+              <h4>🛠️ Productos y Servicios</h4>
+              <p>Avatar conversacional 24/7, ejercicios de regulación emocional, ruta de canalización a profesionales, contenido offline y comunitario.</p>
+            </div>
+            <div class="canvas-item gold">
+              <h4>💊 Aliviadores de Frustraciones</h4>
+              <p>Privacidad y anonimato, funcionamiento sin internet constante, lenguaje y modismos locales, supervisión humana siempre presente.</p>
+            </div>
+            <div class="canvas-item gold">
+              <h4>✨ Creadores de Alegrías</h4>
+              <p>Acompañamiento sin miedo al juicio, detección temprana, conexión rápida con ayuda real.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Diferenciación -->
+      <div class="glass reveal" style="margin-top: 2rem; padding: 1.5rem 2rem; text-align: center;">
+        <h4 style="color: var(--c-gold-400); margin-bottom: .5rem;">🏆 Diferenciación Clave</h4>
+        <p style="max-width: 700px; margin: 0 auto; font-size: .95rem;">No es un chatbot genérico ni una app clínica: es un <strong>puente privado, offline-first y culturalmente adaptado</strong> entre el joven rural y la red de salud mental humana, con la IA en rol de sensibilización y canalización, <strong>nunca de diagnóstico</strong>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TEAM ═══ -->
+  <section class="section" id="equipo">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">07 — El equipo</span>
+        <h2>Equipo <span class="accent">interdisciplinario</span></h2>
+        <p>La convergencia de cuatro disciplinas garantiza un producto técnicamente viable, éticamente sólido, emocionalmente responsable y narrativamente impactante.</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-card glass reveal reveal-delay-1">
+          <div class="team-avatar">🧠</div>
+          <h4>Psicología</h4>
+          <p>Diseña y valida cada contenido emocional, guiones empáticos, protocolos de primeros auxilios y límites terapéuticos.</p>
+        </div>
+        <div class="team-card glass reveal reveal-delay-2">
+          <div class="team-avatar">🎮</div>
+          <h4>Ing. Diseño de Entretenimiento Digital</h4>
+          <p>Crea la experiencia interactiva, interfaz empática del avatar, prototipo visual y gamificación de la regulación emocional.</p>
+        </div>
+        <div class="team-card glass reveal reveal-delay-3">
+          <div class="team-avatar">⚖️</div>
+          <h4>Derecho</h4>
+          <p>Gobernanza ética, régimen de protección de datos de jóvenes rurales, consentimiento informado y marco regulatorio de IA.</p>
+        </div>
+        <div class="team-card glass reveal reveal-delay-4">
+          <div class="team-avatar">🎬</div>
+          <h4>Comunicación y Lenguajes Audiovisuales</h4>
+          <p>Estrategia transmedia, narrativa para romper el tabú cultural y producción de contenidos audiovisuales comunitarios.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="container">
+      <p><span class="footer-brand">AUKA</span> — Cátedra de IA · Antioquia 2040 · Pilar: Equidad y Desarrollo — Salud Mental Juvenil</p>
+      <p style="margin-top: .5rem; font-size: .75rem; color: var(--c-text-muted);">Seguro · Privado · Sin juicios · Diseñado para la juventud rural de Antioquia · <strong>AUKA está contigo, siempre.</strong></p>
+    </div>
+  </footer>
+
+  <!-- ═══ PRESENTATION SLIDES OVERLAY ═══ -->
+  <div class="pk-overlay" id="pkOverlay">
+    <div class="pk-topbar">
+      <h3>🖥️ Presentación · AUKA</h3>
+      <div class="pk-progress-track"><div class="pk-progress-bar" id="pkProgressBar"></div></div>
+      <div class="pk-counter" id="pkCounter">1 / 20</div>
+      <button class="btn btn-sm btn-secondary" id="pkClose">✕ Cerrar</button>
+    </div>
+    <div class="pk-body">
+      <div class="pk-main" id="pkMain">
+        <!-- Slides generated by JS -->
+      </div>
+    </div>
+    <div class="pk-bottombar">
+      <button class="btn btn-sm btn-secondary" id="pkPrev">← Anterior</button>
+      <button class="btn btn-sm btn-primary" id="pkNext">Siguiente →</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

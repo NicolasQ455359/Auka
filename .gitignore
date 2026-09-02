@@ -1,0 +1,6 @@
+*.docx
+WhatsApp Image*
+*.ps1
+*.txt
+.agents/
+.system_generated/
