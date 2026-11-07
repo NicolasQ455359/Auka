@@ -935,6 +935,35 @@ a:hover { color: var(--c-gold-400); }
   border-radius: 50%;
 }
 
+.chat-reset-btn {
+  margin-left: auto;
+  padding: 5px 10px;
+  border: 1px solid #c5d9cb;
+  border-radius: 16px;
+  background: #fff;
+  color: #245233;
+  font-family: var(--ff-body);
+  font-size: .72rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: all var(--tr-fast);
+  box-shadow: 0 1px 3px rgba(0,0,0,.05);
+}
+
+.chat-reset-btn:hover {
+  background: #e1f5ea;
+  border-color: #34d399;
+  color: #1a3d26;
+  transform: translateY(-1px);
+}
+
+.chat-reset-btn:active {
+  transform: scale(0.96);
+}
+
 .chat-messages {
   flex: 1;
   padding: 16px;

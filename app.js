@@ -134,6 +134,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const chatInput = document.getElementById('chatInput');
   const chatSendBtn = document.getElementById('chatSendBtn');
   const emotionBtns = document.getElementById('emotionBtns');
+  const chatResetBtn = document.getElementById('chatResetBtn');
+  let chatTimeouts = [];
 
   const botResponses = {
     feliz: 'Me alegra mucho que te sientas bien hoy. 😊 ¿Quieres contarme más sobre qué te hace sentir así?',
@@ -145,21 +147,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function addMessage(text, isUser) {
     const msg = document.createElement('div');
-    msg.className = `msg ${isUser ? 'msg-user' : 'msg-bot'}`;
+    msg.className = `msg ${isUser ? 'msg-user' : 'msg-bot'} msg-dynamic`;
     msg.textContent = text;
     chatMessages.appendChild(msg);
     chatMessages.scrollTop = chatMessages.scrollHeight;
   }
 
+  function resetChat() {
+    chatTimeouts.forEach(t => clearTimeout(t));
+    chatTimeouts = [];
+    chatMessages?.querySelectorAll('.msg-dynamic').forEach(el => el.remove());
+    if (emotionBtns) {
+      emotionBtns.style.display = 'flex';
+      emotionBtns.querySelectorAll('.emotion-btn').forEach(btn => btn.classList.remove('selected'));
+    }
+    if (chatInput) chatInput.value = '';
+    if (chatMessages) chatMessages.scrollTop = 0;
+  }
+
+  chatResetBtn?.addEventListener('click', resetChat);
+
   emotionBtns?.querySelectorAll('.emotion-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const emotion = btn.dataset.emotion;
       btn.classList.add('selected');
-      setTimeout(() => {
+      const t1 = setTimeout(() => {
         emotionBtns.style.display = 'none';
         addMessage(`Me siento ${emotion}...`, true);
-        setTimeout(() => addMessage(botResponses[emotion] || botResponses.default, false), 800);
+        const t2 = setTimeout(() => addMessage(botResponses[emotion] || botResponses.default, false), 800);
+        chatTimeouts.push(t2);
       }, 300);
+      chatTimeouts.push(t1);
     });
   });
 
@@ -173,7 +191,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!text) return;
     addMessage(text, true);
     chatInput.value = '';
-    setTimeout(() => addMessage(botResponses.default, false), 800);
+    const t = setTimeout(() => addMessage(botResponses.default, false), 800);
+    chatTimeouts.push(t);
   }
 
   // ── BREATHING ANIMATION WITH AUDIO ─────────────
